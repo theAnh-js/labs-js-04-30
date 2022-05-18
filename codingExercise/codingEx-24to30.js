@@ -298,3 +298,20 @@ console.log(mostFrequent([3, 6, 6, 6, 6, 6, 6, 4, 3, 3, 3, 5, 3])); //6
 console.log(mostFrequent([1, 2, 3, 4, 5])); //1
 console.log(mostFrequent([1, 1, 2, 2, 3, 4, 5, 3, 4, 5])); //1
 console.log(mostFrequent([1, 1, 2, 2, 3, 4, 5, 3, 4, 5, 3, 1])); //1
+
+function isSymmetricNumber(n) {
+  // your code here
+  let result = false;
+  let lengthOfN = n.toString().length;
+
+  if (lengthOfN > 3) return false;
+  if (lengthOfN === 1) return true;
+  let one = n % 10;
+  let ten = Math.trunc((n % 100) / 10);
+  let hundred = Math.trunc(n / 100);
+
+  if (lengthOfN === 2 && one === ten) result = true;
+  if (lengthOfN === 3 && one === hundred) result = true;
+
+  return result;
+}

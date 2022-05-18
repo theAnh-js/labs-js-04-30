@@ -87,9 +87,11 @@ function validMountainArray(numberList) {
   if (firstArr.length === 0 || rest.length === 0) return false;
 
   for (let i = 0; i < firstArr.length - 1; i++) {
+    console.log(firstArr[i], firstArr[i + 1]);
     if (firstArr[i] >= firstArr[i + 1]) return false;
   }
-  for (let i = 0; i < rest.length; i++) {
+  for (let i = 0; i < rest.length - 1; i++) {
+    console.log(rest[i], rest[i + 1]);
     if (rest[i] <= rest[i + 1]) return false;
   }
   return true;
