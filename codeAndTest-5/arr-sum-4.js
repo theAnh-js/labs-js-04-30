@@ -3,7 +3,7 @@ export function calcCartTotal(cartItemList) {
   if (!Array.isArray(cartItemList) || cartItemList.length === 0) return 0;
 
   return cartItemList.reduce(
-    (acc, prod) => acc + prod.product.price * prod.quantity,
+    (sum, cartItem) => sum + cartItem.product.price * cartItem.quantity,
     0
   );
 }

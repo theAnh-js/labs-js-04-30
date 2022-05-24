@@ -24,11 +24,11 @@ describe("findAllNumbers(numberList)", () => {
   });
   test("should return list of number that begin by odd number", () => {
     expect(findAllNumbers([5, 4, 33, 55, 76, 98])).toEqual([5, 33, 55, 76, 98]);
-    expect(findAllNumbers([56, 78, 98, 55, 43, 24, 26, 67])).toEqual([
-      56, 78, 98, 55,
+    expect(findAllNumbers([56, 78, -98, 55, 43, 24, 26, 67])).toEqual([
+      56, 78, -98, 55,
     ]);
     expect(
-      findAllNumbers([5, 4, 33, 55, 5, 76, 98, 101, 11, 1214, 1000])
-    ).toEqual([5, 33, 55, 5, 76, 98, 101, 11, 1214, 1000]);
+      findAllNumbers([5, -4, 33, -55, 5, 76, -98, -101, 11, 1214, 1000])
+    ).toEqual([5, 33, -55, 5, 76, -98, -101, 11, 1214, 1000]);
   });
 });
