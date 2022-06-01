@@ -1,7 +1,11 @@
 /**ARRAY-FILTER-03: Dãy số fibonaci nhỏ hơn n
 Viết hàm generateFibonaci(n) để tạo ra mảng các số fibonaci nhỏ hơn n (0 < n < 1000) */
 
-import { generateFibonaci, generateFibonaciV2 } from "./arr-filter-3";
+import {
+  generateFibonaci,
+  generateFibonaciV2,
+  generateFibonaciV3,
+} from "./arr-filter-3";
 describe("generateFibonaci(n)", () => {
   test("should retun an empty array if n is a number", () => {
     expect(generateFibonaci(" ")).toEqual([]);
@@ -53,6 +57,35 @@ describe("generateFibonaciV2(n)", () => {
     expect(generateFibonaciV2(14)).toEqual([0, 1, 1, 2, 3, 5, 8, 13]);
     expect(generateFibonaciV2(20)).toEqual([0, 1, 1, 2, 3, 5, 8, 13]);
     expect(generateFibonaciV2(57)).toEqual([
+      0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55,
+    ]);
+  });
+});
+
+describe("generateFibonaciV3(n)", () => {
+  test("should retun an empty array if n is a number", () => {
+    expect(generateFibonaciV3(" ")).toEqual([]);
+    expect(generateFibonaciV3({})).toEqual([]);
+    expect(generateFibonaciV3(null)).toEqual([]);
+    expect(generateFibonaciV3(Boolean)).toEqual([]);
+    expect(generateFibonaciV3(NaN)).toEqual([]);
+    expect(generateFibonaciV3(undefined)).toEqual([]);
+  });
+  test("should return empty array if numberList is empty or only one element", () => {
+    expect(generateFibonaciV3([])).toEqual([]);
+  });
+  test("should return empty array if n <= 0 or n >= 1000", () => {
+    expect(generateFibonaciV3(0)).toEqual([]);
+    expect(generateFibonaciV3(-1)).toEqual([]);
+    expect(generateFibonaciV3(1000)).toEqual([]);
+    expect(generateFibonaciV3(1288)).toEqual([]);
+  });
+  test("should return list fibonaci number less than n", () => {
+    expect(generateFibonaciV3(1)).toEqual([0]);
+    expect(generateFibonaciV3(7)).toEqual([0, 1, 1, 2, 3, 5]);
+    expect(generateFibonaciV3(14)).toEqual([0, 1, 1, 2, 3, 5, 8, 13]);
+    expect(generateFibonaciV3(20)).toEqual([0, 1, 1, 2, 3, 5, 8, 13]);
+    expect(generateFibonaciV3(57)).toEqual([
       0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55,
     ]);
   });

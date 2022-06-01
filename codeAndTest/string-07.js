@@ -27,3 +27,19 @@ export function fillPath(path, params) {
   }
   return output;
 }
+
+//V2
+export function fillPathV2(path, params) {
+  if (
+    typeof path !== "string" ||
+    typeof params !== "object" ||
+    path === "" ||
+    path === " "
+  )
+    return "";
+
+  for (const key in params) {
+    path = path.replace(`:${key}`, params[key]);
+  }
+  return path;
+}

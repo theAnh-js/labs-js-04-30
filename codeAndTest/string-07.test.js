@@ -11,7 +11,7 @@ fillPath('/categories/:categoryId/products/:productId', { productId: 2 });
 // should return '/categories/:categoryId/products/2[^
 ] */
 
-import { fillPath } from "./string-07";
+import { fillPath, fillPathV2 } from "./string-07";
 describe("fillPath(path, params)", () => {
   test('should return "" if path is empty', () => {
     expect(fillPath("", {})).toBe("");
@@ -35,6 +35,36 @@ describe("fillPath(path, params)", () => {
     ).toBe("/categories/:categoryId/products/2");
 
     expect(fillPath("/categories/:categoryId/products/:productId", {})).toBe(
+      "/categories/:categoryId/products/:productId"
+    );
+  });
+});
+
+describe("fillPathV2(path, params)", () => {
+  test('should return "" if path is empty', () => {
+    expect(fillPathV2("", {})).toBe("");
+    expect(fillPathV2(" ", {})).toBe("");
+  });
+
+  test("should return path with Id changed from param object", () => {
+    expect(fillPathV2("/products/:productId", { productId: 123 })).toBe(
+      "/products/123"
+    );
+
+    expect(
+      fillPathV2("/categories/:categoryId/products/:productId", {
+        categoryId: 1,
+        productId: 2,
+      })
+    ).toBe("/categories/1/products/2");
+
+    expect(
+      fillPathV2("/categories/:categoryId/products/:productId", {
+        productId: 2,
+      })
+    ).toBe("/categories/:categoryId/products/2");
+
+    expect(fillPathV2("/categories/:categoryId/products/:productId", {})).toBe(
       "/categories/:categoryId/products/:productId"
     );
   });
