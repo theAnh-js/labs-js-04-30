@@ -13,7 +13,8 @@ function debounce(callback, waitTime) {
 }
 
 let click = debounce(log, 500);
-click(); // nó đợi xem trong 500ml ta có click lần nào nữa không, nếu có thì nó sẽ hủy lệnh click này.
+
+click(); // nó đợi xem trong 500ms ta có click lần nào nữa không, nếu có thì nó sẽ hủy lệnh click này.
 click(); // vì lại click nên lệnh click trên được hủy, lệnh click này hoạt động tương tự.
-click(); // đến lần này, trong 500ml không có lệnh click nào nữa nên nó show "log".
+click(); // đến lần này, trong 500ms không có lệnh click nào nữa nên nó show "log".
 // Vì vậy chỉ ra 1 lần "log"
